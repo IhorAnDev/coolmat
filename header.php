@@ -49,7 +49,9 @@
 				</nav><!-- #site-navigation -->
 
 				<div class="language-select">
-					KR | EN
+					<a lang="ko-KR" hreflang="ko-KR" href="<?php echo site_url('/ko'); ?>"> KR</a>
+					|
+					<a lang="en-US" hreflang="en-US" href="<?php echo site_url(); ?>"> EN</a>
 				</div>
 			</div>
 

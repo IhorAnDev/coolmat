@@ -56,7 +56,7 @@ get_header();
 	</div>
 
 	<div class="food-title section-heading" id="food">
-		menu
+		<?php get_category_description('category_name=menu'); ?>
 	</div>
 
 	<div class="grid">
@@ -87,20 +87,17 @@ get_header();
 		else :
 
 			get_template_part('template-parts/content', 'none');
-
 		endif;
 		?>
 	</div>
 
-
-
-
 	<div class="section-heading" id="locations">
-		direction to coolmat
+		<?php get_category_description('category_name=Location'); ?>
+		<?php get_category_by_description('location'); ?>
 	</div>
 
-	<div class="locations">
-		<?php query_posts('post_type=location&posts_per_page=1'); ?>
+	<div class="locations" id="locations">
+		<?php query_posts('post_type=Location&posts_per_page=1'); ?>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -109,11 +106,10 @@ get_header();
 
 					<div class="map">
 						<div class="map-inner">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4473.
-						054879647253!2d126.85949571988147!3d37.556773327539084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-						1!3m3!1m2!1s0x357c9c03c38738ad%3A0x1eff909f2c04315c!2s284-10
-						%20Yeomchang-dong%2C%20Gangseo-gu%2C%20Seoul%2C%20South%20Korea!5e0
-						!3m2!1sen!2sua!4v1695392251647!5m2!1sen!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+							<?php if (get_field('map')) : ?>
+								<?php the_field('map'); ?>
+							<?php endif; ?>
 						</div>
 					</div>
 

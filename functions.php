@@ -224,3 +224,17 @@ function get_category_description($query)
 		echo $category[0]->category_description;
 	}
 }
+
+function get_category_by_description($categoryName)
+{
+	$category = get_term_by('name', $categoryName, 'category');
+
+	// Check if the category was found
+	if ($category) {
+		// Output the category description
+		echo $category->description;
+	} else {
+		// Category not found
+		echo 'Category not found';
+	}
+}
